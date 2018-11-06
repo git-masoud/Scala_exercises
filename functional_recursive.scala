@@ -35,7 +35,7 @@ pack(List("a", "a", "a", "a", "b", "c", "c", "a", "a", "d", "e", "e", "e", "e"))
 
 //res0: List[List[String]] = List(List("a", "a", "a", "a"), List("b"), List("c", "c"), List("a", "a"), List("d"), List("e", "e", "e", "e"))
 
-def pack[A](lst: List[A],tempList: List[A]=List()): List[List[Any]] = lst match {
+def pack[A](lst: List[A],tempList: List[A]=List()): List[List[A]] = lst match {
   case Nil => Nil
   case x :: tail => if (tail.size == 0 || x != tail(0)) (x::tempList) :: pack(tail)
   else pack(tail, x::tempList)
